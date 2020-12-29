@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : Ship
 {
+    public float maxHealth;
     private Vector3 mousePos;
     private float speed;
     private float maxX;
@@ -11,6 +12,8 @@ public class Player : Ship
 
     public Player(Rigidbody2D rb): base(rb)
     {
+        maxHealth = 100f;
+        currHealth = maxHealth;
         speed = 0.05f;
         maxX = 8;
         maxY = 4;
