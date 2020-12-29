@@ -831,6 +831,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 538176736}
+  healthBarFill: {fileID: 1637391946}
+  fillColour:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1268130491
 GameObject:
   m_ObjectHideFlags: 0
