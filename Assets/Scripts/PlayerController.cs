@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Player player;
-
     void Start()
     {
-        player = new Player(GetComponent<Rigidbody2D>());
+        Game.player = new Player(GetComponent<Rigidbody2D>());
     }
 
     void Update()
@@ -16,7 +14,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             Vector3 currPos = transform.position;
-            transform.position = player.Move(currPos);
+            transform.position = Game.player.Move(currPos);
         }
     }
 

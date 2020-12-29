@@ -1,16 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Game : MonoBehaviour
+﻿public static class Game
 {
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
+    public static Player player;
 }
