@@ -9,7 +9,7 @@ public class Player : Ship
     private float maxX;
     private float maxY;
 
-    public Player()
+    public Player(Rigidbody2D rb): base(rb)
     {
         speed = 0.05f;
         maxX = 8;

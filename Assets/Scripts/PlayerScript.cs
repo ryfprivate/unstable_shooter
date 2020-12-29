@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
     private Player player;
 
     void Start()
     {
-        player = new Player();
+        player = new Player(GetComponent<Rigidbody2D>());
     }
 
     void Update()
