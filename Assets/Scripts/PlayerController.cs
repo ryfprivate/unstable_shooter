@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     private Player player;
 
@@ -18,5 +18,10 @@ public class PlayerScript : MonoBehaviour
             Vector3 currPos = transform.position;
             transform.position = player.Move(currPos);
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision);
     }
 }
