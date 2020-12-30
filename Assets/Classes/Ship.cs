@@ -5,7 +5,10 @@ using UnityEngine;
 public class Ship
 {
     public float currHealth;
-    public Ship(Rigidbody2D rb) {
+    public Rigidbody2D rb;
+
+    public Ship(Rigidbody2D rigidBody) {
+        rb = rigidBody;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 }
