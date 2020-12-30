@@ -13,7 +13,7 @@ TextureImporter:
     second: PlayerBeam1
   - first:
       213: 3930011312167392660
-    second: sheet_3
+    second: LaserBlue
   - first:
       213: -96796154962138083
     second: sheet_4
@@ -201,6 +201,27 @@ TextureImporter:
       bones: []
       spriteID: 3ad46a49e24614dc0800000000000000
       internalID: -3656531271222932061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LaserBlue
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 549
+        width: 9
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 495110167743a8630800000000000000
+      internalID: 3930011312167392660
       vertices: []
       indices: 
       edges: []
