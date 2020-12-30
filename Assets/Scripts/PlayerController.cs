@@ -21,6 +21,11 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log(collision);
-        Game.player.currHealth -= 10f;
+        Game.player.TakeDamage(10);
+    }
+
+    void OnCollisionStay2D(Collision2D collision) {
+        Debug.Log(collision);
+        Game.player.TakeDamage(0.5f);
     }
 }

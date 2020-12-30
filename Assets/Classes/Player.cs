@@ -19,6 +19,13 @@ public class Player : Ship
         maxY = 4;
     }
 
+    public void TakeDamage(float percentage) {
+        currHealth -= percentage/100 * maxHealth;
+        if (currHealth < 0) {
+            currHealth = 0;
+        }
+    }
+
     public Vector3 Move(Vector3 currPos)
     {
         mousePos = Input.mousePosition;

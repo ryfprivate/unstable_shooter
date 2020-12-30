@@ -9,7 +9,6 @@ public class UIController : MonoBehaviour
     public Image healthBarFill;
     void Start()
     {
-        Debug.LogFormat("Player health: {0}", Game.player.currHealth);
         healthBar.wholeNumbers = true;
         healthBar.minValue = 0;
     }
