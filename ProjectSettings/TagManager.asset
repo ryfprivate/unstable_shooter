@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Laser
+  - Enemy
+  - Boundary
   layers:
   - Default
   - TransparentFX
@@ -13,8 +16,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Top
+  - Bottom
   - 
   - 
   - 
@@ -40,4 +43,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Top
+    uniqueID: 854616883
     locked: 0
