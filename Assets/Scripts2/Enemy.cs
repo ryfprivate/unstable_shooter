@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
+        // Add Collider condition
         currentHealth -= 10;
         if (currentHealth <= 0)
         {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Ship
+public class CPlayer : Ship
 {
     public float maxHealth;
     private Vector3 mousePos;
@@ -10,7 +10,7 @@ public class Player : Ship
     private float maxX;
     private float maxY;
 
-    public Player(Rigidbody2D rb): base(rb)
+    public CPlayer(Rigidbody2D rb) : base(rb)
     {
         maxHealth = 100f;
         currHealth = maxHealth;
@@ -19,9 +19,11 @@ public class Player : Ship
         maxY = 4.5f;
     }
 
-    public void TakeDamage(float percentage) {
-        currHealth -= percentage/100 * maxHealth;
-        if (currHealth < 0) {
+    public void TakeDamage(float percentage)
+    {
+        currHealth -= percentage / 100 * maxHealth;
+        if (currHealth < 0)
+        {
             currHealth = 0;
         }
     }

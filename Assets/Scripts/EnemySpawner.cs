@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public Enemy[] enemies;
+    // public Enemy[] enemies;
 
-    void Start()
-    {
-        enemies = new Enemy[3];
-    }
+    // void Start()
+    // {
+    //     enemies = new Enemy[3];
+    // }
 
-    void Update()
-    {
+    // void Update()
+    // {
 
-    }
+    // }
 }
