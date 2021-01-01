@@ -15,8 +15,8 @@ public class Player : Ship
         maxHealth = 100f;
         currHealth = maxHealth;
         speed = 0.05f;
-        maxX = 8;
-        maxY = 4;
+        maxX = 2.5f;
+        maxY = 4.5f;
     }
 
     public void TakeDamage(float percentage) {

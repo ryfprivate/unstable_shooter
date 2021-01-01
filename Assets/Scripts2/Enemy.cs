@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
         {
             HealthbarFill.color = new Color(1f, 0.6f, 0);
         }
-        if (Slider.value <= maxHealth / 10)
+        if (Slider.value <= 2 * maxHealth / 10)
         {
             HealthbarFill.color = new Color(1f, 0, 0);
         }
