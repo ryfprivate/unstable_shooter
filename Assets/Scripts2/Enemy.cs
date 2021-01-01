@@ -38,4 +38,13 @@ public class Enemy : MonoBehaviour
         // Move healthbar with enemy
         Healthbar.transform.position = Camera.main.WorldToScreenPoint(transform.position + Offset);
     }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        currentHealth -= 10;
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
