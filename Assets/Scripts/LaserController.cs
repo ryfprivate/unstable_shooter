@@ -18,7 +18,7 @@ public class LaserController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "Boundary") {
-            Debug.LogFormat("hit enemy");
+            // Debug.LogFormat("hit enemy");
             Destroy(gameObject);
             return;
         }

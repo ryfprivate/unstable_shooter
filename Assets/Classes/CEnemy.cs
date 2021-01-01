@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Ship
+public class CEnemy : Ship
 {
 
-    public Enemy(Rigidbody2D rb) : base(rb)
+    public CEnemy(Rigidbody2D rb) : base(rb)
     {
 
     }
