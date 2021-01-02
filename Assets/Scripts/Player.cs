@@ -19,6 +19,9 @@ public class Player : MonoBehaviour
     private float maxX;
     private float maxY;
 
+    private float fireRate;
+    private float decayRate;
+
     void Awake()
     {
         GameEvents.current.onGamePlay += Test;
@@ -26,6 +29,9 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        fireRate = 0.3f;
+        // Decay every second
+        decayRate = 1f;
         maxHealth = 100f;
         currHealth = maxHealth;
         maxRadiation = 1000f;
@@ -34,7 +40,8 @@ public class Player : MonoBehaviour
         maxX = 2.5f;
         maxY = 4.5f;
         rb = GetComponent<Rigidbody2D>();
-        InvokeRepeating("ShootLaser", 1.0f, 0.3f);
+        InvokeRepeating("ShootLaser", 0, fireRate);
+        InvokeRepeating("Decay", 0, decayRate);
 
         // UI
         HealthBar.maxValue = maxHealth;
@@ -45,7 +52,7 @@ public class Player : MonoBehaviour
 
     void Test()
     {
-        Debug.Log("Game STart");
+        Debug.Log("Game Start");
     }
 
     void Update()
@@ -60,6 +67,10 @@ public class Player : MonoBehaviour
             Vector3 currPos = transform.position;
             transform.position = Move(currPos);
         }
+    }
+
+    void Decay() {
+        currRadiation += 1;
     }
 
     void ShootLaser()
