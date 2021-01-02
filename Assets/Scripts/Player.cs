@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public Slider Healthbar;
-    public Image HealthbarFill;
+    public Slider HealthBar;
 
     public GameObject PrefabLaser;
     private Rigidbody2D rb;
@@ -33,8 +32,8 @@ public class Player : MonoBehaviour
         InvokeRepeating("ShootLaser", 1.0f, 0.3f);
 
         // UI
-        Healthbar.maxValue = maxHealth;
-        Healthbar.value = currHealth;
+        HealthBar.maxValue = maxHealth;
+        HealthBar.value = currHealth;
     }
 
     void Test()
@@ -45,8 +44,8 @@ public class Player : MonoBehaviour
     void Update()
     {
         // Update health
-        Healthbar.maxValue = maxHealth;
-        Healthbar.value = currHealth;
+        HealthBar.maxValue = maxHealth;
+        HealthBar.value = currHealth;
 
         if (Input.GetMouseButton(0))
         {

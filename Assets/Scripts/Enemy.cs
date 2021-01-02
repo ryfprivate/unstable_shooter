@@ -11,9 +11,9 @@ public class Enemy : MonoBehaviour
     private float speed;
     private bool isMoving;
 
-    // Healthbar
-    public GameObject Healthbar;
-    public Image HealthbarFill;
+    // HealthBar
+    public GameObject HealthBar;
+    public Image HealthBarFill;
     public Vector3 Offset;
 
     void Start()
@@ -21,8 +21,8 @@ public class Enemy : MonoBehaviour
         isMoving = false;
         speed = 1.0f;
         rb = GetComponent<Rigidbody2D>();
-        Healthbar.SetActive(true);
-        Healthbar.transform.position = Camera.main.WorldToScreenPoint(transform.position + Offset);
+        HealthBar.SetActive(true);
+        HealthBar.transform.position = Camera.main.WorldToScreenPoint(transform.position + Offset);
     }
 
     public void Move() {
@@ -35,21 +35,21 @@ public class Enemy : MonoBehaviour
             rb.velocity = transform.up * -speed;
         }
 
-        Slider Slider = Healthbar.GetComponent<Slider>();
+        Slider Slider = HealthBar.GetComponent<Slider>();
         Slider.maxValue = maxHealth;
         Slider.value = currentHealth;
 
-        HealthbarFill.color = new Color(0, 1f, 0f);
+        HealthBarFill.color = new Color(0, 1f, 0f);
         if (Slider.value <= maxHealth / 2)
         {
-            HealthbarFill.color = new Color(1f, 0.6f, 0);
+            HealthBarFill.color = new Color(1f, 0.6f, 0);
         }
         if (Slider.value <= 2 * maxHealth / 10)
         {
-            HealthbarFill.color = new Color(1f, 0, 0);
+            HealthBarFill.color = new Color(1f, 0, 0);
         }
-        // Move healthbar with enemy
-        Healthbar.transform.position = Camera.main.WorldToScreenPoint(transform.position + Offset);
+        // Move HealthBar with enemy
+        HealthBar.transform.position = Camera.main.WorldToScreenPoint(transform.position + Offset);
     }
 
     void OnTriggerEnter2D(Collider2D col)
