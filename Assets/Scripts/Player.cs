@@ -6,6 +6,8 @@ using TMPro;
 
 public class Player : MonoBehaviour
 {
+    private float radiationConstant = 1.05f;
+
     public Slider HealthBar;
     public TextMeshProUGUI HealthBarLabel;
     public Slider RadiationBar;
@@ -38,8 +40,8 @@ public class Player : MonoBehaviour
         decayRate = 1f;
         maxHealth = 100f;
         currHealth = maxHealth;
-        maxRadiation = 1000f;
-        currRadiation = 1f;
+        maxRadiation = 2f;
+        currRadiation = 0.1f;
         speed = 0.05f;
         maxX = 2.5f;
         maxY = 3f;
@@ -69,7 +71,7 @@ public class Player : MonoBehaviour
         HealthBarLabel.text = currHealth.ToString();
         // Update radiation
         RadiationBar.value = currRadiation;
-        RadiationBarLabel.text = currRadiation.ToString("F1");
+        RadiationBarLabel.text = currRadiation.ToString("F3");
 
         if (Input.GetMouseButton(0))
         {
@@ -79,7 +81,7 @@ public class Player : MonoBehaviour
     }
 
     void Decay() {
-        currRadiation *= 1.1f;
+        currRadiation *= radiationConstant;
         if (currRadiation > maxRadiation) {
             currRadiation = maxRadiation;
         }
