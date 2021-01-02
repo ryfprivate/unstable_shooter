@@ -9,9 +9,7 @@ public class WaveMoving : Wave
 
     void Start()
     {
-        GameEvents.current.onSpawnWave += Spawn;
-        // targetPosition = new Vector3(0, -6, 0);
-        // StartCoroutine(MoveToPosition());
+        Spawn();
     }
 
     void Spawn()
@@ -20,7 +18,7 @@ public class WaveMoving : Wave
         {
             GameObject enemy = child.gameObject;
             print("Spawning: " + enemy);
-            enemy.GetComponent<Enemy>().Move();
+            // enemy.GetComponent<Enemy>().Move();
         }
     }
 

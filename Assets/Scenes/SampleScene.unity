@@ -498,6 +498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 516641301}
   - component: {fileID: 516641300}
+  - component: {fileID: 516641302}
   m_Layer: 0
   m_Name: Top
   m_TagString: BTop
@@ -545,6 +546,23 @@ Transform:
   m_Father: {fileID: 980403872}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &516641302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516641299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a801bb4ea87e8da4b93d7b028849e428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  round:
+    prefabsEasy:
+    - {fileID: 5389543497479897587, guid: af954af5b64576f4fa15dc052d0279a4, type: 3}
+    prefabsMedium: []
+    prefabsHard: []
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,36 +879,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 643110449}
   m_CullTransparentMesh: 0
---- !u!1 &745060538
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 745060539}
-  m_Layer: 0
-  m_Name: Level - Default
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &745060539
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 745060538}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &821372796
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,7 +925,7 @@ GameObject:
   m_Component:
   - component: {fileID: 980403872}
   m_Layer: 0
-  m_Name: Boundaries
+  m_Name: Gates
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1924,7 +1912,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5389543497479897586, guid: af954af5b64576f4fa15dc052d0279a4, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5389543497479897586, guid: af954af5b64576f4fa15dc052d0279a4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1969,6 +1957,10 @@ PrefabInstance:
     - target: {fileID: 5389543497479897587, guid: af954af5b64576f4fa15dc052d0279a4, type: 3}
       propertyPath: m_Name
       value: Wave - Easy (moving)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5389543497479897587, guid: af954af5b64576f4fa15dc052d0279a4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af954af5b64576f4fa15dc052d0279a4, type: 3}
