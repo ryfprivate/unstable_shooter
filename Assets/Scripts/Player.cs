@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         GameEvents.current.onEndRound += PauseMode;
+        Game.Player = gameObject;
 
         seconds = 0;
         fireRate = 0.3f;

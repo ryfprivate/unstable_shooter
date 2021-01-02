@@ -10,6 +10,7 @@ TagManager:
   - BTop
   - BBottom
   - EBomb
+  - PLaser
   layers:
   - Default
   - TransparentFX

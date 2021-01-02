@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     public GameObject Explosion;
+    public GameObject Bomb;
     public float maxHealth;
     public float currentHealth;
 
@@ -20,6 +21,7 @@ public class Enemy : MonoBehaviour
         currentHealth = maxHealth;
         HealthBar.SetActive(true);
         HealthBar.transform.position = Camera.main.WorldToScreenPoint(transform.position + Offset);
+        StartCoroutine(Fire());
     }
 
     void Update()
@@ -41,6 +43,18 @@ public class Enemy : MonoBehaviour
         HealthBar.transform.position = Camera.main.WorldToScreenPoint(transform.position + Offset);
     }
 
+    IEnumerator Fire()
+    {
+        float randValue = Random.value;
+        if (randValue < .1f)
+        {
+            GameObject instance = Instantiate(Bomb, transform.position, transform.rotation);
+        }
+        // print("laser " + instance);
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(Fire());
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "BTop")
@@ -54,11 +68,14 @@ public class Enemy : MonoBehaviour
         }
 
         // Add Collider condition
-        currentHealth -= Game.currRadiation * 10f;
-        if (currentHealth <= 0)
+        if (col.tag == "PLaser")
         {
-            Destroy(gameObject);
-            GameObject explosion = Instantiate(Explosion, transform.position, transform.rotation, transform.parent);
+            currentHealth -= Game.currRadiation * 10f;
+            if (currentHealth <= 0)
+            {
+                Destroy(gameObject);
+                GameObject explosion = Instantiate(Explosion, transform.position, transform.rotation, transform.parent);
+            }
         }
     }
 }
