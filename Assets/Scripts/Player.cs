@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     public Slider RadiationBar;
     public TextMeshProUGUI RadiationBarLabel;
 
+    public TextMeshProUGUI Timer;
+
     public GameObject PrefabLaser;
     private Rigidbody2D rb;
     public float currHealth;
@@ -27,17 +29,31 @@ public class Player : MonoBehaviour
 
     private float fireRate;
     private float decayRate;
+    private int seconds;
+
+    // Coroutines
+    private IEnumerator cDecay;
+    private IEnumerator cShoot;
+    private IEnumerator cTimer;
+
+    private bool inPlay;
 
     void Start()
     {
+        GameEvents.current.onEndRound += PauseMode;
+
+        seconds = 0;
         fireRate = 0.3f;
         // Decay every second
         decayRate = 1f;
+
         maxHealth = 100f;
         currHealth = maxHealth;
         maxRadiation = 2f;
         currRadiation = 0.1f;
+
         speed = 0.05f;
+
         maxX = 2.5f;
         maxY = 3f;
         minY = -4.5f;
@@ -55,6 +71,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (!inPlay) return;
+
         // Update health
         HealthBar.value = currHealth;
         HealthBarLabel.text = currHealth.ToString();
@@ -70,8 +88,30 @@ public class Player : MonoBehaviour
     }
 
     void PlayMode() {
-        StartCoroutine(Decay());
-        StartCoroutine(ShootLaser());
+        inPlay = true;
+        cDecay = Decay();
+        cShoot = ShootLaser();
+        cTimer = Tick();
+        StartCoroutine(cDecay);
+        StartCoroutine(cShoot);
+        StartCoroutine(cTimer);
+    }
+
+    void PauseMode() {
+        transform.position = Move(new Vector3(0, -4, 0));
+        inPlay = false;
+        Debug.Log("paused");
+        StopCoroutine(cDecay);
+        StopCoroutine(cShoot);
+        StopCoroutine(cTimer);
+    }
+
+    IEnumerator Tick() {
+        Timer.text = seconds.ToString() + "s";
+        seconds += 1;
+        yield return new WaitForSeconds(1f);
+        cTimer = Tick();
+        StartCoroutine(cTimer);
     }
 
     IEnumerator Decay() {
@@ -80,14 +120,16 @@ public class Player : MonoBehaviour
             currRadiation = maxRadiation;
         }
         yield return new WaitForSeconds(decayRate);
-        StartCoroutine(Decay());
+        cDecay = Decay();
+        StartCoroutine(cDecay);
     }
 
     IEnumerator ShootLaser()
     {
         GameObject instance = Instantiate(PrefabLaser, transform.position, transform.rotation);
         yield return new WaitForSeconds(fireRate);
-        StartCoroutine(ShootLaser());
+        cShoot = ShootLaser();
+        StartCoroutine(cShoot);
     }
 
     void OnCollisionEnter2D(Collision2D collision)

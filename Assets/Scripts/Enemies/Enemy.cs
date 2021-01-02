@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public float maxHealth = 100;
     public float currentHealth = 100;
     private Rigidbody2D rb;
-    public float speed;
+    private float speed;
 
     // HealthBar
     public GameObject HealthBar;

@@ -21,12 +21,12 @@ public class GameEvents : MonoBehaviour
         }
     }
 
-    public event Action onSpawnWave;
-    public void SpawnWave()
+    public event Action onEndRound;
+    public void EndRound()
     {
-        if (onSpawnWave != null)
+        if (onEndRound != null)
         {
-            onSpawnWave();
+            onEndRound();
         }
     }
 }
