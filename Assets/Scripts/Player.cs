@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
         maxHealth = 100f;
         currHealth = maxHealth;
         maxRadiation = 1000f;
-        currRadiation = 0;
+        currRadiation = 1f;
         speed = 0.05f;
         maxX = 2.5f;
         maxY = 4.5f;
@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
         HealthBarLabel.text = currHealth.ToString();
         // Update radiation
         RadiationBar.value = currRadiation;
-        RadiationBarLabel.text = currRadiation.ToString();
+        RadiationBarLabel.text = currRadiation.ToString("F1");
 
         if (Input.GetMouseButton(0))
         {
@@ -79,7 +79,10 @@ public class Player : MonoBehaviour
     }
 
     void Decay() {
-        currRadiation += 1;
+        currRadiation *= 1.1f;
+        if (currRadiation > maxRadiation) {
+            currRadiation = maxRadiation;
+        }
     }
 
     void ShootLaser()
