@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     private float speed;
     private float maxX;
     private float maxY;
+    private float minY;
 
     private float fireRate;
     private float decayRate;
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour
         speed = 0.05f;
         maxX = 2.5f;
         maxY = 4.5f;
+        minY = -3f;
         rb = GetComponent<Rigidbody2D>();
         InvokeRepeating("ShootLaser", 0, fireRate);
         InvokeRepeating("Decay", 0, decayRate);
@@ -117,9 +119,9 @@ public class Player : MonoBehaviour
         {
             newY = maxY;
         }
-        if (mousePos.y < -maxY)
+        if (mousePos.y < minY)
         {
-            newY = -maxY;
+            newY = minY;
         }
         mousePos = new Vector3(newX, newY, newZ);
 
