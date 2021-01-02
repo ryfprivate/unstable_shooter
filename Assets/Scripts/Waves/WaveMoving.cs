@@ -8,17 +8,18 @@ public class WaveMoving : Wave
     void Start()
     {
         speed = 1f;
+        Initialize();
         StartCoroutine(SelfDestruct());
     }
 
     void Update()
     {
-        // foreach (Transform child in transform)
-        // {
-        //     GameObject enemy = child.gameObject;
-        //     enemy.GetComponent<Rigidbody2D>().velocity = transform.up * -speed;
-        // }
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, -10, 0), speed * Time.deltaTime);
+    }
+
+    public override void Initialize()
+    {
+        base.Initialize();
     }
 
     IEnumerator SelfDestruct()

@@ -7,6 +7,11 @@ public class Wave : MonoBehaviour
     public GameObject[] enemies;
     void Start()
     {
+        Initialize();
+    }
+
+    public virtual void Initialize()
+    {
         int numEnemies = transform.childCount;
         enemies = new GameObject[numEnemies];
 

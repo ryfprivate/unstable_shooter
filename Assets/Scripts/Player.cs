@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
 
         maxHealth = 100f;
         currHealth = maxHealth;
-        Game.maxRadiation = 2f;
+        Game.maxRadiation = 3f;
         Game.currRadiation = 0.1f;
 
         speed = 0.05f;

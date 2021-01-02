@@ -9,6 +9,7 @@ TagManager:
   - Boundary
   - BTop
   - BBottom
+  - EBomb
   layers:
   - Default
   - TransparentFX
