@@ -6,11 +6,14 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public Slider HealthBar;
+    public Slider RadiationBar;
 
     public GameObject PrefabLaser;
     private Rigidbody2D rb;
     public float currHealth;
     public float maxHealth;
+    public float currRadiation;
+    public float maxRadiation;
     private Vector3 mousePos;
     private float speed;
     private float maxX;
@@ -25,6 +28,8 @@ public class Player : MonoBehaviour
     {
         maxHealth = 100f;
         currHealth = maxHealth;
+        maxRadiation = 1000f;
+        currRadiation = 0;
         speed = 0.05f;
         maxX = 2.5f;
         maxY = 4.5f;
@@ -34,6 +39,8 @@ public class Player : MonoBehaviour
         // UI
         HealthBar.maxValue = maxHealth;
         HealthBar.value = currHealth;
+        RadiationBar.maxValue = maxRadiation;
+        RadiationBar.value = currRadiation;
     }
 
     void Test()
@@ -44,8 +51,9 @@ public class Player : MonoBehaviour
     void Update()
     {
         // Update health
-        HealthBar.maxValue = maxHealth;
         HealthBar.value = currHealth;
+        // Update radiation
+        RadiationBar.value = currRadiation;
 
         if (Input.GetMouseButton(0))
         {

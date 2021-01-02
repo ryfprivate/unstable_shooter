@@ -551,6 +551,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
-  Healthbar: {fileID: 1915804295892341943}
-  HealthbarFill: {fileID: 1915804296205069043}
+  HealthBar: {fileID: 1915804295892341943}
+  HealthBarFill: {fileID: 1915804296205069043}
   Offset: {x: 0, y: 0, z: 0}

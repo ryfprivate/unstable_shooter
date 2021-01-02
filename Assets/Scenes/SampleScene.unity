@@ -444,7 +444,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &414536935
 MonoBehaviour:
@@ -1323,7 +1323,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2145781868
 MonoBehaviour:
@@ -1432,9 +1432,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2289066592761965892, guid: 63116cc5958f0f045b5cdc3589428e3b, type: 3}
+      propertyPath: HealthBar
+      value: 
+      objectReference: {fileID: 122330851}
+    - target: {fileID: 2289066592761965892, guid: 63116cc5958f0f045b5cdc3589428e3b, type: 3}
       propertyPath: Healthbar
       value: 
       objectReference: {fileID: 122330851}
+    - target: {fileID: 2289066592761965892, guid: 63116cc5958f0f045b5cdc3589428e3b, type: 3}
+      propertyPath: RadiationBar
+      value: 
+      objectReference: {fileID: 1144207649}
     - target: {fileID: 2289066592761965892, guid: 63116cc5958f0f045b5cdc3589428e3b, type: 3}
       propertyPath: HealthbarFill
       value: 
