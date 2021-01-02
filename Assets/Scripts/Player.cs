@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
     public Slider HealthBar;
+    public TextMeshProUGUI HealthBarLabel;
     public Slider RadiationBar;
+    public TextMeshProUGUI RadiationBarLabel;
 
     public GameObject PrefabLaser;
     private Rigidbody2D rb;
@@ -48,8 +51,10 @@ public class Player : MonoBehaviour
         // UI
         HealthBar.maxValue = maxHealth;
         HealthBar.value = currHealth;
+        HealthBarLabel.text = currHealth.ToString();
         RadiationBar.maxValue = maxRadiation;
         RadiationBar.value = currRadiation;
+        RadiationBarLabel.text = currRadiation.ToString();
     }
 
     void Test()
@@ -61,8 +66,10 @@ public class Player : MonoBehaviour
     {
         // Update health
         HealthBar.value = currHealth;
+        HealthBarLabel.text = currHealth.ToString();
         // Update radiation
         RadiationBar.value = currRadiation;
+        RadiationBarLabel.text = currRadiation.ToString();
 
         if (Input.GetMouseButton(0))
         {
