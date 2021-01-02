@@ -42,8 +42,8 @@ public class Player : MonoBehaviour
         currRadiation = 1f;
         speed = 0.05f;
         maxX = 2.5f;
-        maxY = 4.5f;
-        minY = -3f;
+        maxY = 3f;
+        minY = -4.5f;
         rb = GetComponent<Rigidbody2D>();
         InvokeRepeating("ShootLaser", 0, fireRate);
         InvokeRepeating("Decay", 0, decayRate);
