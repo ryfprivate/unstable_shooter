@@ -22,10 +22,10 @@ public class SpawnGate : MonoBehaviour
             waveQueue.Enqueue(prefabs[index]);
         }
         print("Loaded " + Game.roundLength + " waves");
-        StartCoroutine(SpawnNewWave(5f));
+        StartCoroutine(SpawnNewWave());
     }
 
-    IEnumerator SpawnNewWave(float waveTime)
+    IEnumerator SpawnNewWave()
     {
         if (waveQueue.Count == 0)
         {
@@ -36,7 +36,7 @@ public class SpawnGate : MonoBehaviour
         GameObject prefab = waveQueue.Dequeue();
         Debug.LogFormat("Spawned {0}", prefab.name);
         GameObject obj = Instantiate(prefab, transform.position, transform.rotation) as GameObject;
-        yield return new WaitForSeconds(waveTime);
-        StartCoroutine(SpawnNewWave(5f));
+        yield return new WaitForSeconds(Game.waveTime);
+        StartCoroutine(SpawnNewWave());
     }
 }

@@ -42,8 +42,7 @@ public class Player : MonoBehaviour
         maxY = 3f;
         minY = -4.5f;
         rb = GetComponent<Rigidbody2D>();
-        InvokeRepeating("ShootLaser", 0, fireRate);
-        InvokeRepeating("Decay", 0, decayRate);
+        PlayMode();
 
         // UI
         HealthBar.maxValue = maxHealth;
@@ -70,16 +69,25 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Decay() {
+    void PlayMode() {
+        StartCoroutine(Decay());
+        StartCoroutine(ShootLaser());
+    }
+
+    IEnumerator Decay() {
         currRadiation *= radiationConstant;
         if (currRadiation > maxRadiation) {
             currRadiation = maxRadiation;
         }
+        yield return new WaitForSeconds(decayRate);
+        StartCoroutine(Decay());
     }
 
-    void ShootLaser()
+    IEnumerator ShootLaser()
     {
         GameObject instance = Instantiate(PrefabLaser, transform.position, transform.rotation);
+        yield return new WaitForSeconds(fireRate);
+        StartCoroutine(ShootLaser());
     }
 
     void OnCollisionEnter2D(Collision2D collision)

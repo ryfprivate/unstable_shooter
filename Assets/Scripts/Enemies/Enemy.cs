@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public float maxHealth = 100;
     public float currentHealth = 100;
     private Rigidbody2D rb;
-    private float speed;
+    public float speed;
 
     // HealthBar
     public GameObject HealthBar;
@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        speed = 1.0f;
+        speed = 1f;
         rb = GetComponent<Rigidbody2D>();
         HealthBar.SetActive(true);
         HealthBar.transform.position = Camera.main.WorldToScreenPoint(transform.position + Offset);
