@@ -6,9 +6,12 @@ public class Laser : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float speed;
+    public float damage;
+
     void Start()
     {
         speed = 5;
+        damage = 10f;
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.up * speed;
         // Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
@@ -16,9 +19,15 @@ public class Laser : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "BTop")
+        if (col.gameObject.tag == "Enemy")
         {
-            // Debug.LogFormat("hit enemy");
+            // print("hit enemy " + col.gameObject);
+            // col.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            Destroy(gameObject);
+            return;
+        }
+
+        if (col.gameObject.tag == "BTop") {
             Destroy(gameObject);
             return;
         }

@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public float maxHealth = 100;
-    public float currentHealth = 100;
+    public float maxHealth;
+    public float currentHealth;
     private Rigidbody2D rb;
     private float speed;
 
@@ -17,10 +17,17 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        maxHealth = 10;
+        currentHealth = maxHealth;
         speed = 1f;
         rb = GetComponent<Rigidbody2D>();
         HealthBar.SetActive(true);
         HealthBar.transform.position = Camera.main.WorldToScreenPoint(transform.position + Offset);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
     }
 
     void Update()
@@ -57,7 +64,7 @@ public class Enemy : MonoBehaviour
         }
 
         // Add Collider condition
-        currentHealth -= 10;
+        currentHealth -= Game.currRadiation * 10f;
         if (currentHealth <= 0)
         {
             Destroy(gameObject);

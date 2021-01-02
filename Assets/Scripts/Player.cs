@@ -19,8 +19,6 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     public float currHealth;
     public float maxHealth;
-    public float currRadiation;
-    public float maxRadiation;
     private Vector3 mousePos;
     private float speed;
     private float maxX;
@@ -49,8 +47,8 @@ public class Player : MonoBehaviour
 
         maxHealth = 100f;
         currHealth = maxHealth;
-        maxRadiation = 2f;
-        currRadiation = 0.1f;
+        Game.maxRadiation = 2f;
+        Game.currRadiation = 0.1f;
 
         speed = 0.05f;
 
@@ -58,15 +56,16 @@ public class Player : MonoBehaviour
         maxY = 3f;
         minY = -4.5f;
         rb = GetComponent<Rigidbody2D>();
+
         PlayMode();
 
         // UI
         HealthBar.maxValue = maxHealth;
         HealthBar.value = currHealth;
         HealthBarLabel.text = currHealth.ToString();
-        RadiationBar.maxValue = maxRadiation;
-        RadiationBar.value = currRadiation;
-        RadiationBarLabel.text = currRadiation.ToString();
+        RadiationBar.maxValue = Game.maxRadiation;
+        RadiationBar.value = Game.currRadiation;
+        RadiationBarLabel.text = Game.currRadiation.ToString();
     }
 
     void Update()
@@ -77,8 +76,8 @@ public class Player : MonoBehaviour
         HealthBar.value = currHealth;
         HealthBarLabel.text = currHealth.ToString();
         // Update radiation
-        RadiationBar.value = currRadiation;
-        RadiationBarLabel.text = currRadiation.ToString("F3");
+        RadiationBar.value = Game.currRadiation;
+        RadiationBarLabel.text = Game.currRadiation.ToString("F3");
 
         if (Input.GetMouseButton(0))
         {
@@ -115,9 +114,9 @@ public class Player : MonoBehaviour
     }
 
     IEnumerator Decay() {
-        currRadiation *= radiationConstant;
-        if (currRadiation > maxRadiation) {
-            currRadiation = maxRadiation;
+        Game.currRadiation *= radiationConstant;
+        if (Game.currRadiation > Game.maxRadiation) {
+            Game.currRadiation = Game.maxRadiation;
         }
         yield return new WaitForSeconds(decayRate);
         cDecay = Decay();
@@ -127,6 +126,7 @@ public class Player : MonoBehaviour
     IEnumerator ShootLaser()
     {
         GameObject instance = Instantiate(PrefabLaser, transform.position, transform.rotation);
+        // print("laser " + instance);
         yield return new WaitForSeconds(fireRate);
         cShoot = ShootLaser();
         StartCoroutine(cShoot);
