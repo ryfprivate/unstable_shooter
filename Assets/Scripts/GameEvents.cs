@@ -12,12 +12,12 @@ public class GameEvents : MonoBehaviour
         current = this;
     }
 
-    public event Action onGamePlay;
-    public void GamePlay()
+    public event Action onStartRound;
+    public void StartRound()
     {
-        if (onGamePlay != null)
+        if (onStartRound != null)
         {
-            onGamePlay();
+            onStartRound();
         }
     }
 

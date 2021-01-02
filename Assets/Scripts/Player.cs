@@ -28,11 +28,6 @@ public class Player : MonoBehaviour
     private float fireRate;
     private float decayRate;
 
-    void Awake()
-    {
-        GameEvents.current.onGamePlay += Test;
-    }
-
     void Start()
     {
         fireRate = 0.3f;
@@ -57,11 +52,6 @@ public class Player : MonoBehaviour
         RadiationBar.maxValue = maxRadiation;
         RadiationBar.value = currRadiation;
         RadiationBarLabel.text = currRadiation.ToString();
-    }
-
-    void Test()
-    {
-        Debug.Log("Game Start");
     }
 
     void Update()

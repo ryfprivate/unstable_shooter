@@ -9,33 +9,34 @@ public class SpawnGate : MonoBehaviour
 
     void Start()
     {
+        GameEvents.current.onStartRound += InitializeRound;
         waveQueue = new Queue<GameObject>();
-        InitializeQueue();
-        InvokeRepeating("SpawnNewWave", 2, 5);
     }
 
-    void InitializeQueue()
+    void InitializeRound()
     {
         GameObject[] prefabs = round.prefabsEasy;
-        int index = Random.Range(0, prefabs.Length);
-        waveQueue.Enqueue(prefabs[index]);
+        for (int i = 0; i < Game.roundLength; i++)
+        {
+            int index = Random.Range(0, prefabs.Length);
+            waveQueue.Enqueue(prefabs[index]);
+        }
+        print("Loaded " + Game.roundLength + " waves");
+        StartCoroutine(SpawnNewWave(5f));
     }
 
-    void OnTriggerEnter(Collider collider)
-    {
-    }
-
-    void SpawnNewWave()
+    IEnumerator SpawnNewWave(float waveTime)
     {
         if (waveQueue.Count == 0)
         {
             Debug.Log("no more levels");
-            return;
+            yield break;
         }
 
         GameObject prefab = waveQueue.Dequeue();
         Debug.LogFormat("Spawned {0}", prefab.name);
         GameObject obj = Instantiate(prefab, transform.position, transform.rotation) as GameObject;
-        InitializeQueue();
+        yield return new WaitForSeconds(waveTime);
+        StartCoroutine(SpawnNewWave(5f));
     }
 }
