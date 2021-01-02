@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class WaveMoving : Wave
 {
-    private Vector3 targetPosition;
-
+    private float speed;
     void Start()
     {
-        Spawn();
+        speed = 1f;
+        StartCoroutine(SelfDestruct());
     }
 
-    void Spawn()
+    void Update()
     {
-        foreach (Transform child in transform)
-        {
-            GameObject enemy = child.gameObject;
-            print("Spawning: " + enemy);
-        }
+        // foreach (Transform child in transform)
+        // {
+        //     GameObject enemy = child.gameObject;
+        //     enemy.GetComponent<Rigidbody2D>().velocity = transform.up * -speed;
+        // }
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, -6, 0), speed * Time.deltaTime);
+    }
+
+    IEnumerator SelfDestruct()
+    {
+        yield return new WaitForSeconds(Game.waveTime * 2);
+        Destroy(gameObject);
     }
 }
