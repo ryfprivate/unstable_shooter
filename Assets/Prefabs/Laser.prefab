@@ -93,7 +93,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39771c810de9f984fb9184be989434b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 2289066592761965945, guid: 63116cc5958f0f045b5cdc3589428e3b, type: 3}
   damage: 0
 --- !u!1 &720745262551518412
 GameObject:
@@ -163,8 +162,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1588898361
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 3930011312167392660, guid: 4a8e79c19e644c1479e18eacb97a6835, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

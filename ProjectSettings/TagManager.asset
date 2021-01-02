@@ -46,6 +46,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Top
-    uniqueID: 854616883
+  - name: Background
+    uniqueID: 1588898361
+    locked: 0
+  - name: GamePlay
+    uniqueID: 1175774875
+    locked: 0
+  - name: Effects
+    uniqueID: 1865542015
     locked: 0
