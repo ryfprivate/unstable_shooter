@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
 
         // Update health
         HealthBar.value = currHealth;
-        HealthBarLabel.text = currHealth.ToString();
+        HealthBarLabel.text = currHealth.ToString("F2");
         // Update radiation
         RadiationBar.value = Game.currRadiation;
         RadiationBarLabel.text = Game.currRadiation.ToString("F3");
@@ -134,12 +134,12 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Enemy") TakeDamage(10);
+        if (col.tag == "Enemy") TakeDamage(Game.currRadiation * 10f);
     }
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (col.tag == "Enemy") TakeDamage(0.5f);
+        if (col.tag == "Enemy") TakeDamage(Game.currRadiation * 0.5f);
     }
 
     public void TakeDamage(float percentage)
