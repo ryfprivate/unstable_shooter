@@ -132,14 +132,14 @@ public class Player : MonoBehaviour
         StartCoroutine(cShoot);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        TakeDamage(10);
+        if (col.tag == "Enemy") TakeDamage(10);
     }
 
-    void OnCollisionStay2D(Collision2D collision)
+    void OnTriggerStay2D(Collider2D col)
     {
-        TakeDamage(0.5f);
+        if (col.tag == "Enemy") TakeDamage(0.5f);
     }
 
     public void TakeDamage(float percentage)

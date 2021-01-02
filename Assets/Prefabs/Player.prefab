@@ -93,8 +93,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3cb5dfef9319e49a0acffe6e9cc623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Healthbar: {fileID: 0}
-  HealthbarFill: {fileID: 0}
+  HealthBar: {fileID: 0}
+  HealthBarLabel: {fileID: 0}
+  RadiationBar: {fileID: 0}
+  RadiationBarLabel: {fileID: 0}
+  Timer: {fileID: 0}
   PrefabLaser: {fileID: 720745261426875632, guid: 20d542f6adf7ab24a8334ec79e04551e, type: 3}
   currHealth: 0
   maxHealth: 0
