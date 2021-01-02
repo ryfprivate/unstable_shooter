@@ -18,12 +18,12 @@ public class WaveMoving : Wave
         //     GameObject enemy = child.gameObject;
         //     enemy.GetComponent<Rigidbody2D>().velocity = transform.up * -speed;
         // }
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, -6, 0), speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, -10, 0), speed * Time.deltaTime);
     }
 
     IEnumerator SelfDestruct()
     {
-        yield return new WaitForSeconds(Game.waveTime * 2);
+        yield return new WaitForSeconds(Game.waveTime * 3);
         Destroy(gameObject);
     }
 }
