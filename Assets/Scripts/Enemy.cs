@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public float currentHealth = 100;
     private Rigidbody2D rb;
     private float speed;
+    private bool isMoving;
 
     // Healthbar
     public GameObject Healthbar;
@@ -17,6 +18,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        isMoving = false;
         speed = 1.0f;
         rb = GetComponent<Rigidbody2D>();
         Healthbar.SetActive(true);
@@ -24,11 +26,15 @@ public class Enemy : MonoBehaviour
     }
 
     public void Move() {
-        rb.velocity = transform.up * -speed;
+        isMoving = true;
     }
 
     void Update()
     {
+        if (isMoving) {
+            rb.velocity = transform.up * -speed;
+        }
+
         Slider Slider = Healthbar.GetComponent<Slider>();
         Slider.maxValue = maxHealth;
         Slider.value = currentHealth;
