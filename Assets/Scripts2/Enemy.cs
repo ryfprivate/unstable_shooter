@@ -39,8 +39,11 @@ public class Enemy : MonoBehaviour
         Healthbar.transform.position = Camera.main.WorldToScreenPoint(transform.position + Offset);
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerEnter2D(Collider2D col)
     {
+        if (col.tag == "Boundary") {
+            return;
+        }
         // Add Collider condition
         currentHealth -= 10;
         if (currentHealth <= 0)

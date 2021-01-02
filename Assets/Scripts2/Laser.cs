@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserController : MonoBehaviour
+public class Laser : MonoBehaviour
 {
-    // public GameObject player;
     private Rigidbody2D rb;
     private float speed;
     void Start()
@@ -17,7 +16,8 @@ public class LaserController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "Boundary") {
+        if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "Boundary")
+        {
             // Debug.LogFormat("hit enemy");
             Destroy(gameObject);
             return;
