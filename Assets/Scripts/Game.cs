@@ -7,6 +7,7 @@ public class Game : MonoBehaviour
     void Start()
     {
         GameEvents.current.GamePlay();
+        GameEvents.current.SpawnWave();
     }
 
     void Update()

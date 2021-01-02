@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class WaveMoving : Wave
 {
-
     private float waveTime = 10f;
     private Vector3 targetPosition;
 
     void Start()
     {
-        targetPosition = new Vector3(0, -6, 0);
-        StartCoroutine(MoveToPosition());
+        GameEvents.current.onSpawnWave += Spawn;
+        // targetPosition = new Vector3(0, -6, 0);
+        // StartCoroutine(MoveToPosition());
+    }
 
+    void Spawn()
+    {
+        foreach (Transform child in transform)
+        {
+            GameObject enemy = child.gameObject;
+            print("Spawning: " + enemy);
+            enemy.GetComponent<Enemy>().Move();
+        }
     }
 
     public IEnumerator MoveToPosition()

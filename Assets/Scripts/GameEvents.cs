@@ -20,4 +20,13 @@ public class GameEvents : MonoBehaviour
             onGamePlay();
         }
     }
+
+    public event Action onSpawnWave;
+    public void SpawnWave()
+    {
+        if (onSpawnWave != null)
+        {
+            onSpawnWave();
+        }
+    }
 }
