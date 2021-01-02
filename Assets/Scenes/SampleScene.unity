@@ -927,6 +927,8 @@ MonoBehaviour:
   round:
     prefabsEasy:
     - {fileID: 4360188641998037962, guid: 49d4ef0ea60c0724481b54ca2a9db447, type: 3}
+    - {fileID: 1752053185344975570, guid: 666ebe00c1c127748b356d2cfac01bfb, type: 3}
+    - {fileID: 6374678637706020650, guid: 548192e2159b76d4c8b32a7dadc251e8, type: 3}
     prefabsMedium: []
     prefabsHard: []
 --- !u!1 &519420028
