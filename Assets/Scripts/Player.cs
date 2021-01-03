@@ -26,7 +26,6 @@ public class Player : MonoBehaviour
     private float minY;
 
     private float fireRate;
-    private float decayRate;
     private int seconds;
 
     // Coroutines
@@ -43,8 +42,7 @@ public class Player : MonoBehaviour
 
         seconds = 0;
         fireRate = 0.3f;
-        // Decay every second
-        decayRate = 1f;
+        Game.growthRate = 0.02f;
 
         maxHealth = 100f;
         currHealth = maxHealth;
@@ -121,11 +119,11 @@ public class Player : MonoBehaviour
     }
 
     IEnumerator Decay() {
-        Game.currRadiation *= Game.radiationConstant;
+        Game.currRadiation += Game.growthRate * Game.radiationConstant;
         if (Game.currRadiation > Game.maxRadiation) {
             Game.currRadiation = Game.maxRadiation;
         }
-        yield return new WaitForSeconds(decayRate);
+        yield return new WaitForSeconds(1f);
         cDecay = Decay();
         StartCoroutine(cDecay);
     }

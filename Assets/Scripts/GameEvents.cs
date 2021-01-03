@@ -30,4 +30,13 @@ public class GameEvents : MonoBehaviour
             onEndRound();
         }
     }
+
+    public event Action onSelectMutation;
+    public void SelectMutation()
+    {
+        if (onSelectMutation != null)
+        {
+            onSelectMutation();
+        }
+    }
 }

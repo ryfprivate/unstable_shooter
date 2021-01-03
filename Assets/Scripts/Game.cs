@@ -9,6 +9,7 @@ public class Game : MonoBehaviour
     public static float waveTime = 10f;
 
     public static float radiationConstant = 1.05f;
+    public static float growthRate;
     public static float currRadiation;
     public static float maxRadiation;
 
