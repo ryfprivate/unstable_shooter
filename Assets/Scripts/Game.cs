@@ -13,13 +13,20 @@ public class Game : MonoBehaviour
     public static float currRadiation;
     public static float maxRadiation;
 
+    public static MutationDisplay selectedMutation;
+
     void Start()
     {
+        GameEvents.current.onSelectMutation += Display;
         GameEvents.current.StartRound();
     }
 
     void Update()
     {
         // print("player " + Player.transform.position);
+    }
+
+    void Display() {
+        print("mutation: " + selectedMutation.name);
     }
 }

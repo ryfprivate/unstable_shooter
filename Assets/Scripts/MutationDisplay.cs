@@ -23,8 +23,14 @@ public class MutationDisplay : MonoBehaviour
 
     public void Select()
     {
+        Game.selectedMutation = this;
         GameEvents.current.SelectMutation();
         GetComponent<Image>().color = new Color(0, 0, 0, 0.3f);
+    }
+
+    public void LevelUp()
+    {
+        mutation.level += 1;
     }
 
     void Reset()

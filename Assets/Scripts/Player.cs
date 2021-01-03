@@ -85,11 +85,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Test() {
-        print("testingg");
-    }
-
-    void PlayMode() {
+    public void PlayMode() {
         // MutationTree.SetActive(false);
         inPlay = true;
         cDecay = Decay();
