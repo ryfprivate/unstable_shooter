@@ -7,6 +7,8 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     public GameObject MutationTree;
+    public SpriteRenderer graphics;
+    public Sprite[] ships;
 
     public Slider HealthBar;
     public TextMeshProUGUI HealthBarLabel;
@@ -47,7 +49,6 @@ public class Player : MonoBehaviour
         fireRate = 0.3f;
 
         Game.currHealth = Game.maxHealth;
-
         Game.maxRadiation = 5f;
 
         speed = 0.05f;
@@ -70,6 +71,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        graphics.sprite = ships[Game.shipLevel];
         // Update health
         HealthBar.maxValue = Game.maxHealth;
         HealthBar.value = Game.currHealth;

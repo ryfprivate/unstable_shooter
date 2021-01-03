@@ -15,6 +15,8 @@ public class Game : MonoBehaviour
     public static float currRadiation;
     public static float maxRadiation;
 
+    public static int shipLevel;
+
     public static MutationDisplay selectedMutation;
     public Mutation reactor;
     public Mutation ship;
@@ -41,6 +43,7 @@ public class Game : MonoBehaviour
 
     void UpdateStats() {
         growthRate = reactor.upgrades[reactor.level];
+        shipLevel = ship.level;
         maxHealth = ship.upgrades[ship.level];
     }
 }
