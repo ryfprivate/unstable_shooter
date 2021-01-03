@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     public GameObject Explosion;
+    public GameObject Radiation;
     public GameObject Bomb;
     public float maxHealth;
     public float currentHealth;
@@ -75,6 +76,7 @@ public class Enemy : MonoBehaviour
             {
                 Destroy(gameObject);
                 GameObject explosion = Instantiate(Explosion, transform.position, transform.rotation, transform.parent);
+                GameObject radiation = Instantiate(Radiation, transform.position, transform.rotation, transform.parent);
             }
         }
     }

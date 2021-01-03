@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3177482029017099616}
   - component: {fileID: 3177482029017099617}
   - component: {fileID: 3177482029017099618}
+  - component: {fileID: 1427374945965575983}
   m_Layer: 0
   m_Name: Radiation
   m_TagString: Untagged
@@ -102,3 +103,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1427374945965575983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3177482029017099619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fd18913e47ec6244b2a56937202dee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

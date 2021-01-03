@@ -468,6 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Explosion: {fileID: 7377382017347381705, guid: f190051cc486d5e48af4b16309fb5f75, type: 3}
+  Radiation: {fileID: 3177482029017099619, guid: a997aadddcc23d64bbb673bb3f2b6ad2, type: 3}
   Bomb: {fileID: 8780586101139407059, guid: 07c78e53a375198498adbcbe581e5fd9, type: 3}
   maxHealth: 100
   currentHealth: 100

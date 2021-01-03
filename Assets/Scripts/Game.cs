@@ -7,6 +7,8 @@ public class Game : MonoBehaviour
     public static GameObject Player;
     public static int roundLength = 6;
     public static float waveTime = 10f;
+
+    public static float radiationConstant = 1.05f;
     public static float currRadiation;
     public static float maxRadiation;
 

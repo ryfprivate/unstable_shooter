@@ -6,8 +6,6 @@ using TMPro;
 
 public class Player : MonoBehaviour
 {
-    private float radiationConstant = 1.05f;
-
     public GameObject MutationTree;
 
     public Slider HealthBar;
@@ -123,7 +121,7 @@ public class Player : MonoBehaviour
     }
 
     IEnumerator Decay() {
-        Game.currRadiation *= radiationConstant;
+        Game.currRadiation *= Game.radiationConstant;
         if (Game.currRadiation > Game.maxRadiation) {
             Game.currRadiation = Game.maxRadiation;
         }
