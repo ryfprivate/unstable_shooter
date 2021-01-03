@@ -17,8 +17,6 @@ public class Player : MonoBehaviour
 
     public GameObject PrefabLaser;
     private Rigidbody2D rb;
-    public float currHealth;
-    public float maxHealth;
     private Vector3 mousePos;
     private float speed;
     private float maxX;
@@ -38,14 +36,17 @@ public class Player : MonoBehaviour
     void Start()
     {
         GameEvents.current.onEndRound += PauseMode;
-        Game.Player = gameObject;
+        GameEvents.current.onStartRound += Initialize;
 
+        Game.Player = gameObject;
+    }
+
+    void Initialize() {
         seconds = 0;
         fireRate = 0.3f;
-        Game.growthRate = 0.02f;
 
-        maxHealth = 100f;
-        currHealth = maxHealth;
+        Game.currHealth = Game.maxHealth;
+
         Game.maxRadiation = 5f;
         Game.currRadiation = 0.1f;
 
@@ -59,9 +60,9 @@ public class Player : MonoBehaviour
         PlayMode();
 
         // UI
-        HealthBar.maxValue = maxHealth;
-        HealthBar.value = currHealth;
-        HealthBarLabel.text = currHealth.ToString();
+        HealthBar.maxValue = Game.maxHealth;
+        HealthBar.value = Game.currHealth;
+        HealthBarLabel.text = Game.currHealth.ToString();
         RadiationBar.maxValue = Game.maxRadiation;
         RadiationBar.value = Game.currRadiation;
         RadiationBarLabel.text = Game.currRadiation.ToString();
@@ -72,8 +73,9 @@ public class Player : MonoBehaviour
         if (!inPlay) return;
 
         // Update health
-        HealthBar.value = currHealth;
-        HealthBarLabel.text = currHealth.ToString("F2");
+        HealthBar.maxValue = Game.maxHealth;
+        HealthBar.value = Game.currHealth;
+        HealthBarLabel.text = Game.currHealth.ToString("F2");
         // Update radiation
         RadiationBar.value = Game.currRadiation;
         RadiationBarLabel.text = Game.currRadiation.ToString("F3");
@@ -85,8 +87,8 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void PlayMode() {
-        // MutationTree.SetActive(false);
+    void PlayMode() {
+        MutationTree.SetActive(false);
         inPlay = true;
         cDecay = Decay();
         cShoot = ShootLaser();
@@ -145,10 +147,10 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(float percentage)
     {
-        currHealth -= percentage / 100 * maxHealth;
-        if (currHealth < 0)
+        Game.currHealth -= percentage / 100 * Game.maxHealth;
+        if (Game.currHealth < 0)
         {
-            currHealth = 0;
+            Game.currHealth = 0;
         }
     }
 

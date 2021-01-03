@@ -22,6 +22,6 @@ MonoBehaviour:
   - 80
   costs:
   - 2
-  - 1
-  - 1
-  - 1
+  - 3
+  - 4
+  - 5

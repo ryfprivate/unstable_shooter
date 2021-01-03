@@ -16,20 +16,12 @@ public class MutationDisplay : MonoBehaviour
         GameEvents.current.onSelectMutation += Deselect;
         Name.text = mutation.name;
         Level.text = mutation.level.ToString();
-        if (mutation.level == mutation.upgrades.Length - 1)
-        {
-            Level.text = "-";
-        }
     }
 
     void Update()
     {
         Name.text = mutation.name;
         Level.text = mutation.level.ToString();
-        if (mutation.level == mutation.upgrades.Length - 1)
-        {
-            Level.text = "-";
-        }
     }
 
     public void Select()

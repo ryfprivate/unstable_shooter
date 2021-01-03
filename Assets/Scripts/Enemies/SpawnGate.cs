@@ -29,7 +29,7 @@ public class SpawnGate : MonoBehaviour
         if (waveQueue.Count == 0)
         {
             Debug.Log("no more levels");
-            yield return new WaitForSeconds(Game.waveTime);
+            // yield return new WaitForSeconds(Game.waveTime);
             GameEvents.current.EndRound();
             yield break;
         }

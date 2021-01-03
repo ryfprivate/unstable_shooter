@@ -700,10 +700,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacc244df02def443aedf537bfe934fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mutations:
-  - {fileID: 11400000, guid: c2122ae1d6383204daeaf3bee4983d5d, type: 2}
-  - {fileID: 11400000, guid: 82f99ac511d7b324388cbc79699a5b97, type: 2}
-  - {fileID: 11400000, guid: 0d60fadce1dc04543bff93b7ae7ab3ca, type: 2}
+  reactor: {fileID: 11400000, guid: c2122ae1d6383204daeaf3bee4983d5d, type: 2}
+  ship: {fileID: 11400000, guid: 82f99ac511d7b324388cbc79699a5b97, type: 2}
+  weapons: {fileID: 11400000, guid: 0d60fadce1dc04543bff93b7ae7ab3ca, type: 2}
 --- !u!114 &150344628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3582,17 +3581,6 @@ Transform:
   m_Father: {fileID: 150344626}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1485288350 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2289066592761965892, guid: 63116cc5958f0f045b5cdc3589428e3b, type: 3}
-  m_PrefabInstance: {fileID: 2289066593961762532}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df3cb5dfef9319e49a0acffe6e9cc623, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1485288353 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2289066592761965893, guid: 63116cc5958f0f045b5cdc3589428e3b, type: 3}
@@ -3848,9 +3836,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1485288350}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: PlayMode
+      - m_Target: {fileID: 150344627}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+        m_MethodName: NextRound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
