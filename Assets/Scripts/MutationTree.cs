@@ -14,6 +14,11 @@ public class MutationTree : MonoBehaviour
         GameEvents.current.onSelectMutation += Display;
     }
 
+    public void Upgrade()
+    {
+        Game.selectedMutation.LevelUp();
+    }
+
     void Display()
     {
         Desc.text = Game.selectedMutation.mutation.description;

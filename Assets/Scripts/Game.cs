@@ -17,16 +17,11 @@ public class Game : MonoBehaviour
 
     void Start()
     {
-        GameEvents.current.onSelectMutation += Display;
         GameEvents.current.StartRound();
     }
 
     void Update()
     {
         // print("player " + Player.transform.position);
-    }
-
-    void Display() {
-        print("mutation: " + selectedMutation.name);
     }
 }

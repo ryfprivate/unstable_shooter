@@ -13,12 +13,23 @@ public class MutationDisplay : MonoBehaviour
 
     void Start()
     {
-        GameEvents.current.onSelectMutation += Reset;
+        GameEvents.current.onSelectMutation += Deselect;
         Name.text = mutation.name;
         Level.text = mutation.level.ToString();
+        if (mutation.level == mutation.upgrades.Length)
+        {
+            Level.text = "-";
+        }
+    }
 
-        print(mutation.name);
-        print(mutation.level);
+    void Update()
+    {
+        Name.text = mutation.name;
+        Level.text = mutation.level.ToString();
+        if (mutation.level == mutation.upgrades.Length)
+        {
+            Level.text = "-";
+        }
     }
 
     public void Select()
@@ -30,10 +41,11 @@ public class MutationDisplay : MonoBehaviour
 
     public void LevelUp()
     {
+        if (mutation.level == mutation.upgrades.Length) return;
         mutation.level += 1;
     }
 
-    void Reset()
+    void Deselect()
     {
         // Resetting colors
         GetComponent<Image>().color = new Color(1, 1, 1, 0.1f);
