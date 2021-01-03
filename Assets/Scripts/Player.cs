@@ -49,7 +49,6 @@ public class Player : MonoBehaviour
         fireRate = 0.3f;
 
         Game.currHealth = Game.maxHealth;
-        Game.maxRadiation = 5f;
 
         speed = 0.05f;
 

@@ -45,5 +45,6 @@ public class Game : MonoBehaviour
         growthRate = reactor.upgrades[reactor.level];
         shipLevel = ship.level;
         maxHealth = ship.upgrades[ship.level];
+        maxRadiation = weapons.upgrades[weapons.level];
     }
 }
