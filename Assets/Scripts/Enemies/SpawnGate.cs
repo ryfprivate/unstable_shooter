@@ -7,13 +7,17 @@ public class SpawnGate : MonoBehaviour
     public Round round;
     private Queue<GameObject> waveQueue;
 
+    private IEnumerator cSpawn;
+
     void Awake() {
         waveQueue = new Queue<GameObject>();
         GameEvents.current.onStartRound += InitializeRound;
+        GameEvents.current.onGameOver += Stop;
     }
 
     void InitializeRound()
     {
+        print("SpawnGAte OnStartRound");
         GameObject[] prefabs = round.prefabsEasy;
         for (int i = 0; i < Game.roundLength; i++)
         {
@@ -21,7 +25,14 @@ public class SpawnGate : MonoBehaviour
             waveQueue.Enqueue(prefabs[index]);
         }
         print("Loaded " + Game.roundLength + " waves");
-        StartCoroutine(SpawnNewWave());
+        cSpawn = SpawnNewWave();
+        StartCoroutine(cSpawn);
+    }
+
+    void Stop() {
+        print("stopping");
+        StopCoroutine(cSpawn);
+        waveQueue = new Queue<GameObject>();
     }
 
     IEnumerator SpawnNewWave()

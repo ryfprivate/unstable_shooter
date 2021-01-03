@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
+    public GameObject GameOver;
+
     public static GameObject Player;
     public static int roundLength = 3;
     public static float waveTime = 10f;
@@ -24,17 +27,23 @@ public class Game : MonoBehaviour
 
     void Start()
     {
-        reactor.Reset();
-        ship.Reset();
-        weapons.Reset();
-
-        UpdateStats();
-        GameEvents.current.StartRound();
+        print("Game Start");
+        GameEvents.current.onGameOver += EndGame;
+        StartGame();
     }
 
     void Update()
     {
         UpdateStats();
+    }
+
+    void Initialize() {
+        roundLength = 3;
+        waveTime = 10f;
+
+        radiationConstant = 1.05f;
+        currHealth = maxHealth;
+        currRadiation = 0.01f;
     }
 
     public void NextRound() {
@@ -46,5 +55,24 @@ public class Game : MonoBehaviour
         shipLevel = ship.level;
         maxHealth = ship.upgrades[ship.level];
         maxRadiation = weapons.upgrades[weapons.level];
+    }
+
+    void EndGame() {
+        GameOver.SetActive(true);
+    }
+
+    void StartGame() {
+        GameOver.SetActive(false);
+        reactor.Reset();
+        ship.Reset();
+        weapons.Reset();
+
+        UpdateStats();
+        Initialize();
+        GameEvents.current.StartRound();
+    }
+
+    public void Restart() {
+        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
     }
 }

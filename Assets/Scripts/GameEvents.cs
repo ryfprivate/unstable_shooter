@@ -15,7 +15,7 @@ public class GameEvents : MonoBehaviour
     public event Action onStartRound;
     public void StartRound()
     {
-        print("in start round trigger");
+        print("in start round trigger" + onStartRound);
         if (onStartRound != null)
         { 
             onStartRound();
@@ -37,6 +37,15 @@ public class GameEvents : MonoBehaviour
         if (onSelectMutation != null)
         {
             onSelectMutation();
+        }
+    }
+
+    public event Action onGameOver;
+    public void GameOver()
+    {
+        if (onGameOver != null)
+        {
+            onGameOver();
         }
     }
 }

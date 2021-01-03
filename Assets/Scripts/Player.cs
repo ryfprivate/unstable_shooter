@@ -33,18 +33,21 @@ public class Player : MonoBehaviour
     private IEnumerator cShoot;
     private IEnumerator cTimer;
 
-    private bool inPlay;
+    public bool inPlay;
+
+    void Awake() {
+        GameEvents.current.onEndRound += PauseMode;
+        GameEvents.current.onStartRound += Initialize;
+    }
 
     void Start()
     {
-        GameEvents.current.onEndRound += PauseMode;
-        GameEvents.current.onStartRound += Initialize;
-
         Game.Player = gameObject;
         Game.currRadiation = 0.1f;
     }
 
-    void Initialize() {
+    public void Initialize() {
+        print("Player onStartRound");
         seconds = 0;
         fireRate = 0.3f;
 
@@ -88,6 +91,7 @@ public class Player : MonoBehaviour
     }
 
     void PlayMode() {
+        print("started paly mode");
         MutationTree.SetActive(false);
         inPlay = true;
         cDecay = Decay();
@@ -102,7 +106,6 @@ public class Player : MonoBehaviour
         MutationTree.SetActive(true);
         transform.position = Move(new Vector3(0, -4, 0));
         inPlay = false;
-        Debug.Log("paused");
         StopCoroutine(cDecay);
         StopCoroutine(cShoot);
         StopCoroutine(cTimer);
@@ -151,6 +154,12 @@ public class Player : MonoBehaviour
         if (Game.currHealth < 0)
         {
             Game.currHealth = 0;
+            
+            inPlay = false;
+            StopCoroutine(cDecay);
+            StopCoroutine(cShoot);
+            StopCoroutine(cTimer);
+            GameEvents.current.GameOver();
         }
     }
 

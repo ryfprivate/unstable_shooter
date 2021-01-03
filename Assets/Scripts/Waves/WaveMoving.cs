@@ -5,8 +5,13 @@ using UnityEngine;
 public class WaveMoving : Wave
 {
     private float speed;
+
+    void Awake() {
+        GameEvents.current.onGameOver += Dead;
+    }
+
     void Start()
-    {
+    { 
         speed = 1f;
         Initialize();
         StartCoroutine(SelfDestruct());
@@ -20,6 +25,11 @@ public class WaveMoving : Wave
     public override void Initialize()
     {
         base.Initialize();
+    }
+
+    void Dead() {
+        print("self destruct");
+        Destroy(gameObject);
     }
 
     IEnumerator SelfDestruct()
