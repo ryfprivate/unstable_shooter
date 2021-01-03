@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        maxHealth = 30;
+        maxHealth = 30 + 3*Game.waveNum;
         currentHealth = maxHealth;
         HealthBar.SetActive(true);
         HealthBar.transform.position = Camera.main.WorldToScreenPoint(transform.position + Offset);
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
     IEnumerator Fire()
     {
         float randValue = Random.value;
-        if (randValue < .1f)
+        if (randValue < Game.waveNum*.02f)
         {
             GameObject instance = Instantiate(Bomb, transform.position, transform.rotation);
         }

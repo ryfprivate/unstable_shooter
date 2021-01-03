@@ -40,12 +40,13 @@ public class SpawnGate : MonoBehaviour
         if (waveQueue.Count == 0)
         {
             Debug.Log("no more levels");
-            // yield return new WaitForSeconds(Game.waveTime);
+            yield return new WaitForSeconds(Game.waveTime/2);
             GameEvents.current.EndRound();
             yield break;
         }
 
         GameObject prefab = waveQueue.Dequeue();
+        Game.waveNum += 1;
         Debug.LogFormat("Spawned {0}", prefab.name);
         GameObject obj = Instantiate(prefab, transform.position, transform.rotation) as GameObject;
         yield return new WaitForSeconds(Game.waveTime);

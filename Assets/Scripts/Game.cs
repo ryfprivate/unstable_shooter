@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Game : MonoBehaviour
 {
     public GameObject GameOver;
+    public TextMeshProUGUI Wave;
 
     public static GameObject Player;
     public static int roundLength = 3;
     public static float waveTime = 10f;
+    public static int waveNum = 0;
 
     public static float radiationConstant = 1.05f;
     public static float growthRate;
@@ -35,10 +38,12 @@ public class Game : MonoBehaviour
     void Update()
     {
         UpdateStats();
+        Wave.text = "Wave " + waveNum.ToString();
     }
 
     void Initialize() {
-        roundLength = 3;
+        waveNum = 0;
+        roundLength = 3 + Mathf.RoundToInt(waveNum*0.2f);
         waveTime = 10f;
 
         radiationConstant = 1.05f;
