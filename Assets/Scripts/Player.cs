@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
 {
     private float radiationConstant = 1.05f;
 
+    public GameObject MutationTree;
+
     public Slider HealthBar;
     public TextMeshProUGUI HealthBarLabel;
     public Slider RadiationBar;
@@ -48,7 +50,7 @@ public class Player : MonoBehaviour
 
         maxHealth = 100f;
         currHealth = maxHealth;
-        Game.maxRadiation = 3f;
+        Game.maxRadiation = 5f;
         Game.currRadiation = 0.1f;
 
         speed = 0.05f;
@@ -87,7 +89,12 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void Test() {
+        print("testingg");
+    }
+
     void PlayMode() {
+        // MutationTree.SetActive(false);
         inPlay = true;
         cDecay = Decay();
         cShoot = ShootLaser();
@@ -98,6 +105,7 @@ public class Player : MonoBehaviour
     }
 
     void PauseMode() {
+        MutationTree.SetActive(true);
         transform.position = Move(new Vector3(0, -4, 0));
         inPlay = false;
         Debug.Log("paused");
