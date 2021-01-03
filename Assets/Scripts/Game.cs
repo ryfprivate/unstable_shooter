@@ -14,10 +14,14 @@ public class Game : MonoBehaviour
     public static float maxRadiation;
 
     public static MutationDisplay selectedMutation;
+    public Mutation[] mutations;
 
     void Start()
     {
         GameEvents.current.StartRound();
+        foreach (Mutation mutation in mutations) {
+            mutation.Reset();
+        }
     }
 
     void Update()

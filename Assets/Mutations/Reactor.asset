@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Reactor
   description: Increase radiation growth rate
-  level: 0
+  level: 4
   upgrades:
   - 0.02
   - 0.03

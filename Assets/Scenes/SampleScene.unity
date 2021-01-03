@@ -700,6 +700,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacc244df02def443aedf537bfe934fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mutations:
+  - {fileID: 11400000, guid: c2122ae1d6383204daeaf3bee4983d5d, type: 2}
+  - {fileID: 11400000, guid: 82f99ac511d7b324388cbc79699a5b97, type: 2}
+  - {fileID: 11400000, guid: 0d60fadce1dc04543bff93b7ae7ab3ca, type: 2}
 --- !u!114 &150344628
 MonoBehaviour:
   m_ObjectHideFlags: 0

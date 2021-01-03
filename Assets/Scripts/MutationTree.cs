@@ -11,18 +11,25 @@ public class MutationTree : MonoBehaviour
 
     void Start()
     {
-        GameEvents.current.onSelectMutation += Display;
+    }
+
+    void Update()
+    {
+        if (!Game.selectedMutation) return;
+        Desc.text = Game.selectedMutation.mutation.description;
+        int level = Game.selectedMutation.mutation.level;
+        if (level == Game.selectedMutation.mutation.upgrades.Length - 1)
+        {
+            Cost.text = "";
+        }
+        else
+        {
+            Cost.text = "-  " + Game.selectedMutation.mutation.costs[level].ToString();
+        }
     }
 
     public void Upgrade()
     {
         Game.selectedMutation.LevelUp();
-    }
-
-    void Display()
-    {
-        Desc.text = Game.selectedMutation.mutation.description;
-        int level = Game.selectedMutation.mutation.level;
-        Cost.text = "-  " + Game.selectedMutation.mutation.costs[level].ToString();
     }
 }

@@ -16,7 +16,7 @@ public class MutationDisplay : MonoBehaviour
         GameEvents.current.onSelectMutation += Deselect;
         Name.text = mutation.name;
         Level.text = mutation.level.ToString();
-        if (mutation.level == mutation.upgrades.Length)
+        if (mutation.level == mutation.upgrades.Length - 1)
         {
             Level.text = "-";
         }
@@ -26,7 +26,7 @@ public class MutationDisplay : MonoBehaviour
     {
         Name.text = mutation.name;
         Level.text = mutation.level.ToString();
-        if (mutation.level == mutation.upgrades.Length)
+        if (mutation.level == mutation.upgrades.Length - 1)
         {
             Level.text = "-";
         }
@@ -41,7 +41,7 @@ public class MutationDisplay : MonoBehaviour
 
     public void LevelUp()
     {
-        if (mutation.level == mutation.upgrades.Length) return;
+        if (mutation.level == mutation.upgrades.Length - 1) return;
         mutation.level += 1;
     }
 

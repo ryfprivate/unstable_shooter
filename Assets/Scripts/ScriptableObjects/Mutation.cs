@@ -10,4 +10,9 @@ public class Mutation : ScriptableObject
     public int level = 0;
     public float[] upgrades;
     public float[] costs;
+
+    public void Reset()
+    {
+        level = 0;
+    }
 }
