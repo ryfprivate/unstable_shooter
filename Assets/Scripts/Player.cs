@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
         GameEvents.current.onStartRound += Initialize;
 
         Game.Player = gameObject;
+        Game.currRadiation = 0.1f;
     }
 
     void Initialize() {
@@ -48,7 +49,6 @@ public class Player : MonoBehaviour
         Game.currHealth = Game.maxHealth;
 
         Game.maxRadiation = 5f;
-        Game.currRadiation = 0.1f;
 
         speed = 0.05f;
 
@@ -70,8 +70,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (!inPlay) return;
-
         // Update health
         HealthBar.maxValue = Game.maxHealth;
         HealthBar.value = Game.currHealth;
@@ -80,6 +78,7 @@ public class Player : MonoBehaviour
         RadiationBar.value = Game.currRadiation;
         RadiationBarLabel.text = Game.currRadiation.ToString("F3");
 
+        if (!inPlay) return;
         if (Input.GetMouseButton(0))
         {
             Vector3 currPos = transform.position;

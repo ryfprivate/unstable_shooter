@@ -30,6 +30,12 @@ public class MutationTree : MonoBehaviour
 
     public void Upgrade()
     {
-        Game.selectedMutation.LevelUp();
+        int level = Game.selectedMutation.mutation.level;
+        float cost = Game.selectedMutation.mutation.costs[level];
+        if (Game.currRadiation >= cost)
+        {
+            Game.currRadiation -= cost;
+            Game.selectedMutation.LevelUp();
+        }
     }
 }
