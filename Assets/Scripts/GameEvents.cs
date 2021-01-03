@@ -15,8 +15,9 @@ public class GameEvents : MonoBehaviour
     public event Action onStartRound;
     public void StartRound()
     {
+        print("in start round trigger");
         if (onStartRound != null)
-        {
+        { 
             onStartRound();
         }
     }

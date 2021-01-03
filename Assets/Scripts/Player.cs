@@ -135,12 +135,12 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Enemy") TakeDamage(Game.currRadiation * 10f);
+        if (col.tag == "Enemy" || col.tag == "EBomb") TakeDamage(Game.currRadiation * 10f);
     }
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (col.tag == "Enemy") TakeDamage(Game.currRadiation * 0.5f);
+        if (col.tag == "Enemy" || col.tag == "EBomb") TakeDamage(Game.currRadiation * 0.5f);
     }
 
     public void TakeDamage(float percentage)

@@ -7,10 +7,9 @@ public class SpawnGate : MonoBehaviour
     public Round round;
     private Queue<GameObject> waveQueue;
 
-    void Start()
-    {
-        GameEvents.current.onStartRound += InitializeRound;
+    void Awake() {
         waveQueue = new Queue<GameObject>();
+        GameEvents.current.onStartRound += InitializeRound;
     }
 
     void InitializeRound()
